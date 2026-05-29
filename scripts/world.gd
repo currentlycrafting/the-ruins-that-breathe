@@ -869,7 +869,7 @@ var multiplayer_connect_requested: bool = false
 @export var multiplayer_server_url: String = "ws://127.0.0.1:10000"
 ## Production WebSocket URL (Render). Used automatically on web/exported builds.
 ## Replace with your deployed server, e.g. "wss://your-app.onrender.com".
-@export var multiplayer_server_url_production: String = "wss://REPLACE-WITH-YOUR-RENDER-HOST.onrender.com"
+@export var multiplayer_server_url_production: String = "wss://ruins-multiplayer-server.onrender.com"
 ## When true, always use the production URL even in the editor (handy for testing a live server).
 @export var force_production_server_url: bool = false
 @export var multiplayer_room_code: String = "ABC123"
