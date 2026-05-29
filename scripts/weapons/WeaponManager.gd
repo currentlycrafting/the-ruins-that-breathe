@@ -373,7 +373,7 @@ func _clear_all_weapons() -> void:
 		inventory_ui.refresh()
 
 
-## Starts a fresh run: all classes owned, all added to the hotbar, first class equipped.
+## Starts a fresh run: all classes owned, all added to the hotbar.
 func begin_new_run() -> void:
 	var ids: Array = all_class_ids()
 	if ids.is_empty():
