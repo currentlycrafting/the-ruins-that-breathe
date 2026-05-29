@@ -14,7 +14,9 @@ var tutorial_completed: bool = false
 var tutorial_steps_done: Dictionary = {}
 var purchased_shop_items: Dictionary = {}
 var player_upgrades: Dictionary = {}
-## Class/item ids the player currently owns this run (1 random at new-game start, more via Haven shop).
+
+## Class/item ids the player owns.
+## Player should start with all classes, not one random class.
 var owned_classes: Array = []
 
 var _dirty: bool = false
@@ -40,12 +42,16 @@ func save_progress() -> void:
 		"player_upgrades": player_upgrades,
 		"owned_classes": owned_classes,
 	}
+
 	var file: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+
 	if file == null:
 		push_warning("SaveManager: could not write %s" % SAVE_PATH)
 		return
+
 	file.store_string(JSON.stringify(data, "\t"))
 	file.close()
+
 	_dirty = false
 
 
@@ -53,14 +59,19 @@ func load_progress() -> void:
 	if not FileAccess.file_exists(SAVE_PATH):
 		save_loaded.emit()
 		return
+
 	var file: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.READ)
+
 	if file == null:
 		save_loaded.emit()
 		return
+
 	var parsed: Variant = JSON.parse_string(file.get_as_text())
 	file.close()
+
 	if parsed is Dictionary:
 		_apply_save_dict(parsed as Dictionary)
+
 	save_loaded.emit()
 
 
@@ -79,6 +90,7 @@ func _apply_save_dict(data: Dictionary) -> void:
 func add_coins(amount: int) -> void:
 	if amount <= 0:
 		return
+
 	coins += amount
 	coins_changed.emit(coins)
 	mark_dirty()
@@ -87,9 +99,11 @@ func add_coins(amount: int) -> void:
 func spend_coins(amount: int) -> bool:
 	if amount <= 0 or coins < amount:
 		return false
+
 	coins -= amount
 	coins_changed.emit(coins)
 	mark_dirty()
+
 	return true
 
 
@@ -137,6 +151,7 @@ func is_class_owned(class_id: String) -> bool:
 func add_owned_class(class_id: String) -> void:
 	if class_id == "" or owned_classes.has(class_id):
 		return
+
 	owned_classes.append(class_id)
 	mark_dirty()
 	save_progress()
@@ -148,8 +163,32 @@ func set_owned_classes(ids: Array) -> void:
 	save_progress()
 
 
-func reset_owned_classes_to(class_id: String) -> void:
-	owned_classes = [class_id] if class_id != "" else []
+func reset_owned_classes_to_many(ids: Array) -> void:
+	owned_classes = ids.duplicate()
+	mark_dirty()
+	save_progress()
+
+
+func clear_owned_classes() -> void:
+	owned_classes.clear()
+	mark_dirty()
+	save_progress()
+
+
+func clear_save_file() -> void:
+	if FileAccess.file_exists(SAVE_PATH):
+		DirAccess.remove_absolute(SAVE_PATH)
+
+	coins = 0
+	completed_levels.clear()
+	unlocked_worlds = {"world_1": true, "world_2": false}
+	haven_unlocked = false
+	tutorial_completed = false
+	tutorial_steps_done.clear()
+	purchased_shop_items.clear()
+	player_upgrades.clear()
+	owned_classes.clear()
+
 	mark_dirty()
 	save_progress()
 

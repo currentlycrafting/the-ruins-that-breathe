@@ -13,8 +13,7 @@ const STARTING_WEAPON_SCRIPTS: Array[Script] = [
 	MICHAEL_GUN_SCRIPT
 ]
 
-## The five purchasable classes/items. The player starts with exactly one (random);
-## the rest are locked and bought in the Haven shop.
+## The five class/items. The player starts with all of them unlocked.
 const CLASS_COST: int = 100
 const CLASS_CATALOG: Array[Dictionary] = [
 	{"id": "flower", "name": "Flower", "kind": "gun"},
@@ -340,21 +339,8 @@ func _create_weapon_for_class(class_id: String) -> Weapon:
 
 ## Rebuilds the hotbar to exactly the owned classes. If none are owned yet, assign one random.
 func _rebuild_inventory_from_owned() -> void:
-	var owned: Array = get_owned_class_ids()
-	if owned.is_empty():
-		begin_new_run()
-		return
-	_clear_all_weapons()
-	var first_weapon: Weapon = null
-	for id in owned:
-		var weapon: Weapon = _create_weapon_for_class(String(id))
-		if weapon == null:
-			continue
-		add_weapon_to_inventory(weapon)
-		if first_weapon == null:
-			first_weapon = weapon
-	if first_weapon != null:
-		equip_weapon(first_weapon)
+	# Always force the player to start with every class.
+	begin_new_run()
 
 
 func _clear_all_weapons() -> void:
@@ -379,17 +365,15 @@ func begin_new_run() -> void:
 	if ids.is_empty():
 		return
 
-	# Save all classes as owned instead of choosing one random class.
+	# Save all classes as owned. Never choose one random class.
 	if save_manager != null:
-		if save_manager.has_method("reset_owned_classes_to_many"):
+		if save_manager.has_method("set_owned_classes"):
+			save_manager.call("set_owned_classes", ids)
+		elif save_manager.has_method("reset_owned_classes_to_many"):
 			save_manager.call("reset_owned_classes_to_many", ids)
-		elif save_manager.has_method("reset_owned_classes_to"):
-			# Fallback for older SaveManager: reset to the first class,
-			# then add the rest one by one.
-			save_manager.call("reset_owned_classes_to", String(ids[0]))
-			if save_manager.has_method("add_owned_class"):
-				for i in range(1, ids.size()):
-					save_manager.call("add_owned_class", String(ids[i]))
+		elif save_manager.has_method("add_owned_class"):
+			for id in ids:
+				save_manager.call("add_owned_class", String(id))
 
 	_clear_all_weapons()
 
