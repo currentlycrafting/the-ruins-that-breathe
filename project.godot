@@ -15,14 +15,6 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
-window/handheld/orientation="landscape"
-
 [autoload]
 
 Net="*res://scripts/Net.gd"
@@ -33,6 +25,14 @@ TutorialManager="*res://scripts/managers/TutorialManager.gd"
 ObjectiveTrailManager="*res://scripts/managers/ObjectiveTrailManager.gd"
 LightingManager="*res://scripts/managers/LightingManager.gd"
 LoadingScreen="*res://scripts/managers/LoadingScreenManager.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation="landscape"
 
 [input]
 

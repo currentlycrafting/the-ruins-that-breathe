@@ -373,19 +373,43 @@ func _clear_all_weapons() -> void:
 		inventory_ui.refresh()
 
 
-## Starts a fresh run: exactly one random class owned, equipped, in the hotbar.
+## Starts a fresh run: all classes owned, all added to the hotbar, first class equipped.
 func begin_new_run() -> void:
 	var ids: Array = all_class_ids()
 	if ids.is_empty():
 		return
-	var chosen: String = String(ids[randi() % ids.size()])
-	if save_manager != null and save_manager.has_method("reset_owned_classes_to"):
-		save_manager.call("reset_owned_classes_to", chosen)
+
+	# Save all classes as owned instead of choosing one random class.
+	if save_manager != null:
+		if save_manager.has_method("reset_owned_classes_to_many"):
+			save_manager.call("reset_owned_classes_to_many", ids)
+		elif save_manager.has_method("reset_owned_classes_to"):
+			# Fallback for older SaveManager: reset to the first class,
+			# then add the rest one by one.
+			save_manager.call("reset_owned_classes_to", String(ids[0]))
+			if save_manager.has_method("add_owned_class"):
+				for i in range(1, ids.size()):
+					save_manager.call("add_owned_class", String(ids[i]))
+
 	_clear_all_weapons()
-	var weapon: Weapon = _create_weapon_for_class(chosen)
-	if weapon != null:
+
+	var first_weapon: Weapon = null
+
+	for id in ids:
+		var weapon: Weapon = _create_weapon_for_class(String(id))
+		if weapon == null:
+			continue
+
 		add_weapon_to_inventory(weapon)
-		equip_weapon(weapon)
+
+		if first_weapon == null:
+			first_weapon = weapon
+
+	if first_weapon != null:
+		equip_weapon(first_weapon)
+
+	if inventory_ui != null:
+		inventory_ui.refresh()
 
 
 ## Buys a locked class with coins; unlocks it and adds it to the hotbar. Returns true on success.
