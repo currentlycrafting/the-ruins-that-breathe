@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://y2seyfdntyn3"]
+
+[ext_resource type="Texture2D" uid="uid://e6gnh7t2qmso" path="res://assets/mobs/slime-mob.png" id="1_w2c5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucw1y"]
+atlas = ExtResource("1_w2c5q")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhf40"]
+atlas = ExtResource("1_w2c5q")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0m72"]
+atlas = ExtResource("1_w2c5q")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83bua"]
+atlas = ExtResource("1_w2c5q")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed0an"]
+atlas = ExtResource("1_w2c5q")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n27kg"]
+atlas = ExtResource("1_w2c5q")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkpnq"]
+atlas = ExtResource("1_w2c5q")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kmr1"]
+atlas = ExtResource("1_w2c5q")
+region = Rect2(192, 64, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucw1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhf40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0m72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83bua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed0an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n27kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkpnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kmr1")
+}],
+"loop": true,
+"name": &"slime",
+"speed": 5.0
+}]

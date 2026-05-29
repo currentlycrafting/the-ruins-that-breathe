@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dedtoi2c5rbhv"]
+
+[ext_resource type="Texture2D" uid="uid://bwptec1pnyovm" path="res://assets/vfx/flower-bullet.png" id="1_05u1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqi7x"]
+atlas = ExtResource("1_05u1d")
+region = Rect2(0, 0, 64, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsglt"]
+atlas = ExtResource("1_05u1d")
+region = Rect2(64, 0, 64, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnwm6"]
+atlas = ExtResource("1_05u1d")
+region = Rect2(128, 0, 64, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11n23"]
+atlas = ExtResource("1_05u1d")
+region = Rect2(192, 0, 64, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lxas"]
+atlas = ExtResource("1_05u1d")
+region = Rect2(256, 0, 64, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyl1y"]
+atlas = ExtResource("1_05u1d")
+region = Rect2(320, 0, 64, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixjaw"]
+atlas = ExtResource("1_05u1d")
+region = Rect2(384, 0, 64, 73)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqi7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsglt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnwm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11n23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lxas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyl1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixjaw")
+}],
+"loop": true,
+"name": &"flower_bullet",
+"speed": 8.0
+}]

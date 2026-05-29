@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cfd4qmmnkvuum"]
+
+[ext_resource type="Texture2D" uid="uid://cech8r6bh2hly" path="res://assets/player/michael-jackson.png" id="1_w3vf0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3vf0"]
+atlas = ExtResource("1_w3vf0")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmm3k"]
+atlas = ExtResource("1_w3vf0")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqyac"]
+atlas = ExtResource("1_w3vf0")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66et3"]
+atlas = ExtResource("1_w3vf0")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xp6a"]
+atlas = ExtResource("1_w3vf0")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mv32"]
+atlas = ExtResource("1_w3vf0")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6yxe"]
+atlas = ExtResource("1_w3vf0")
+region = Rect2(384, 192, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3vf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmm3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqyac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66et3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xp6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mv32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6yxe")
+}],
+"loop": true,
+"name": &"bad",
+"speed": 5.0
+}]

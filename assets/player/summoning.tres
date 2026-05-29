@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://fybx7lhomlbn"]
+
+[ext_resource type="Texture2D" uid="uid://bia2olarfnc0q" path="res://assets/player/full-character-sprite-sheet.png" id="1_6r03f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48bs4"]
+atlas = ExtResource("1_6r03f")
+region = Rect2(0, 768, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2emmk"]
+atlas = ExtResource("1_6r03f")
+region = Rect2(64, 768, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85vm1"]
+atlas = ExtResource("1_6r03f")
+region = Rect2(128, 768, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdcel"]
+atlas = ExtResource("1_6r03f")
+region = Rect2(192, 768, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48bs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2emmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85vm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdcel")
+}],
+"loop": true,
+"name": &"summoning",
+"speed": 5.0
+}]

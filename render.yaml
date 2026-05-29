@@ -1,0 +1,38 @@
+# Render Blueprint. Deploys two services from this repo:
+#   1) ruins-multiplayer-server : the Godot headless WebSocket server (Docker)
+#   2) ruins-web                : the static HTML5 game export (folder web/)
+#
+# After the server deploys, copy its URL (https://ruins-multiplayer-server.onrender.com)
+# and use the wss:// form in the Godot client (World node -> multiplayer_server_url_production).
+services:
+  - type: web
+    name: ruins-multiplayer-server
+    runtime: docker
+    dockerfilePath: ./server/Dockerfile
+    dockerContext: .
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: MAX_PLAYERS_PER_ROOM
+        value: "24"
+    # No healthCheckPath: the WebSocket server does not answer plain HTTP GETs;
+    # Render keeps it live via open-port detection on $PORT.
+
+  - type: web
+    name: ruins-web
+    runtime: static
+    # The HTML5 export is committed to web/ (run the Godot Web export locally first).
+    staticPublishPath: ./web
+    autoDeploy: true
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    # Only needed if you enable thread_support in the Web export preset.
+    # headers:
+    #   - path: /*
+    #     name: Cross-Origin-Opener-Policy
+    #     value: same-origin
+    #   - path: /*
+    #     name: Cross-Origin-Embedder-Policy
+    #     value: require-corp

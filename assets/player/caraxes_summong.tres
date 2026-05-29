@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c6rco1qvhc5h5"]
+
+[ext_resource type="Texture2D" uid="uid://b8opue5q6tvst" path="res://assets/player/caraxes_summoning.png" id="1_f4lhe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxwbc"]
+atlas = ExtResource("1_f4lhe")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk4jy"]
+atlas = ExtResource("1_f4lhe")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mksqb"]
+atlas = ExtResource("1_f4lhe")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vnkv"]
+atlas = ExtResource("1_f4lhe")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m6h4"]
+atlas = ExtResource("1_f4lhe")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvm4e"]
+atlas = ExtResource("1_f4lhe")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nat4r"]
+atlas = ExtResource("1_f4lhe")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajxo3"]
+atlas = ExtResource("1_f4lhe")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3aj2e"]
+atlas = ExtResource("1_f4lhe")
+region = Rect2(512, 512, 256, 256)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxwbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk4jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mksqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vnkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m6h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvm4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nat4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajxo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3aj2e")
+}],
+"loop": true,
+"name": &"caraxes_summoning",
+"speed": 5.0
+}]

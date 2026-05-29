@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# OS / editor noise
+.DS_Store
+
+# NOTE: web/ (the HTML5 export output) is intentionally NOT ignored.
+# Commit the exported build so the Render static site can serve it.
+# Local player save (only exists under user://, never in the repo): ruins_save.json

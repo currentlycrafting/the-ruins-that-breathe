@@ -1,0 +1,6 @@
+# Optional cross-origin isolation headers (Netlify/Cloudflare "_headers" format).
+# ONLY required if you enable thread_support in the Web export preset.
+# The committed preset disables threads, so these are not needed by default.
+/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp

@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dy6svgmmw8kfe"]
+
+[ext_resource type="Texture2D" uid="uid://tf7na1jcw5y6" path="res://assets/mobs/mob-extra-sprite-sheet.png" id="1_pacgl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlxi6"]
+atlas = ExtResource("1_pacgl")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x1p0"]
+atlas = ExtResource("1_pacgl")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duxps"]
+atlas = ExtResource("1_pacgl")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgo68"]
+atlas = ExtResource("1_pacgl")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb233"]
+atlas = ExtResource("1_pacgl")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e1gv"]
+atlas = ExtResource("1_pacgl")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsd20"]
+atlas = ExtResource("1_pacgl")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iidx0"]
+atlas = ExtResource("1_pacgl")
+region = Rect2(448, 64, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlxi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x1p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duxps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgo68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb233")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e1gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsd20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iidx0")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
